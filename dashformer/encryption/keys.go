@@ -8,7 +8,6 @@ import (
 
 	"github.com/tuneinsight/lattigo/v5/core/rlwe"
 	"github.com/tuneinsight/lattigo/v5/he/hefloat"
-	"github.com/tuneinsight/lattigo/v5/ring"
 )
 
 type PublicParametersKeys struct {
@@ -38,10 +37,10 @@ func SetHERealParams() (*PublicParametersKeys, *SecretParametersKeys, error) {
 	var params hefloat.Parameters
 	if params, err = hefloat.NewParametersFromLiteral(
 		hefloat.ParametersLiteral{
-			LogN:            13,
-			LogQ:            []int{38, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33},
-			LogP:            []int{36, 36},
-			RingType:        ring.ConjugateInvariant,
+			LogN: 14,
+			LogQ: []int{38, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33},
+			LogP: []int{36, 36},
+			// RingType:        ring.ConjugateInvariant,
 			LogDefaultScale: 33,
 		}); err != nil {
 		panic(err)
